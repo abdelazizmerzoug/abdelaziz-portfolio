@@ -4,22 +4,25 @@ import Image from "next/image"
 
 const certificates = [
   {
-    id: "google-cloud",
-    title: "Google Cloud - GenAI",
-    issuer: "Google Cloud",
-    image: "/certificates/google.png",
-  },
-  {
-    id: "michigan-ai",
-    title: "AI for Everyone",
+    id: "michigan-python",
+    title: "Programming for Everybody (Getting Started with Python)",
     issuer: "University of Michigan",
-    image: "/certificates/michigan.png",
+    date: "Aug 27, 2020",
+    image: "/michigan.png",
   },
   {
-    id: "hopkins-sec",
-    title: "Cybersecurity Basics",
-    issuer: "Johns Hopkins University",
-    image: "/certificates/hopkins.png",
+    id: "deep-teaching-learning",
+    title: "Learning How to Learn: Powerful mental tools to help you master tough subjects",
+    issuer: "Deep Teaching Solutions",
+    date: "Jul 26, 2023",
+    image: "/deep-teaching.png",
+  },
+  {
+    id: "google-cybersecurity",
+    title: "Foundations of Cybersecurity",
+    issuer: "Google",
+    date: "Aug 6, 2023",
+    image: "/google.png",
   },
 ]
 
@@ -37,18 +40,27 @@ export default function CertificatesSection() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="rounded-2xl shadow-md p-4 border dark:border-border hover:shadow-lg transition"
+              className="rounded-2xl shadow-md p-6 border dark:border-border hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-card"
             >
               <div className="relative w-full h-48 mb-4">
                 <Image
                   src={cert.image}
-                  alt={cert.title}
+                  alt={`${cert.title} certificate`}
                   fill
                   className="object-contain rounded-md"
                 />
               </div>
-              <h3 className="text-lg font-semibold">{cert.title}</h3>
-              <p className="text-muted-foreground">{cert.issuer}</p>
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold leading-tight">
+                  {cert.title}
+                </h3>
+                <p className="text-muted-foreground font-medium">
+                  {cert.issuer}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Completed: {cert.date}
+                </p>
+              </div>
             </div>
           ))}
         </div>

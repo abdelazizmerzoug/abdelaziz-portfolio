@@ -15,7 +15,7 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "المساعد القانوني الجزائري الذكي",
+      title: "Algerian Legal Assist",
       description: t("projects.legal.description"),
       longDescription: t("projects.legal.longDescription"),
       icon: Brain,
@@ -34,7 +34,6 @@ const ProjectsSection = () => {
       ],
       demoUrl: "https://algerian-legal-assist.vercel.app",
       githubUrl: "private",
-      grade: "17/20",
     },
     {
       id: 2,
@@ -65,10 +64,10 @@ const ProjectsSection = () => {
       longDescription: t("projects.dentist.longDescription"),
       icon: Calendar,
       images: [
-        "/placeholder.svg?height=300&width=500&text=Dentist+Dashboard",
-        "/placeholder.svg?height=300&width=500&text=Appointment+Booking",
-        "/placeholder.svg?height=300&width=500&text=Patient+Management",
-        "/placeholder.svg?height=300&width=500&text=Calendar+View"
+        "/LandpageD.png?height=300&width=500&text=Dentist+Dashboard",
+        "/Loginandsignup.png?height=300&width=500&text=Appointment+Booking",
+        "/Supp.png?height=300&width=500&text=Patient+Management",
+        "/calender.png?height=300&width=500&text=Calendar+View"
       ],
       technologies: ["Next.js", "Supabase", "PostgreSQL", "Auth", "Tailwind CSS", "TypeScript"],
       features: [
@@ -78,7 +77,7 @@ const ProjectsSection = () => {
         t("projects.dentist.feature4"),
       ],
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/abdelazizmerzoug/Dentist-Website",
     },
   ]
 

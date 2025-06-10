@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/components/language-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://abdelaziz-portfolio-ebwqj5eux-abdelaziz-merzougs-projects.vercel.app"),
   title: "Abdelaziz Merzoug - Portfolio",
   description: "Étudiant développeur passionné par l'IA, le développement web et la cybersécurité",
   keywords: ["développeur", "IA", "cybersécurité", "Next.js", "portfolio"],
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdelaziz Merzoug - Portfolio",
     description: "Étudiant développeur passionné par l'IA, le développement web et la cybersécurité",
-    url: "https://abdelaziz-portfolio.vercel.app",
+    url: "https://abdelaziz-portfolio-ebwqj5eux-abdelaziz-merzougs-projects.vercel.app",
     siteName: "Portfolio Abdelaziz",
     images: [
       {
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     description: "Étudiant développeur passionné par l'IA, le développement web et la cybersécurité",
     images: ["/og-image.png"],
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -44,7 +45,12 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
