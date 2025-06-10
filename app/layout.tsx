@@ -13,6 +13,17 @@ export const metadata: Metadata = {
   description: "Étudiant développeur passionné par l'IA, le développement web et la cybersécurité",
   keywords: ["développeur", "IA", "cybersécurité", "Next.js", "portfolio"],
   authors: [{ name: "Abdelaziz Merzoug" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Abdelaziz Merzoug - Portfolio",
     description: "Étudiant développeur passionné par l'IA, le développement web et la cybersécurité",
@@ -44,6 +55,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
