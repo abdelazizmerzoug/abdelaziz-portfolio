@@ -2,22 +2,25 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle } from "lucide-react"
+import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useLanguage } from "@/components/language-provider"
-import { createClient } from "@supabase/supabase-js"
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
-)
+// Initialize EmailJS
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
+
+if (typeof window !== "undefined" && EMAILJS_PUBLIC_KEY) {
+  emailjs.init(EMAILJS_PUBLIC_KEY)
+}
 
 const ContactSection = () => {
   const { t } = useLanguage()
@@ -43,22 +46,25 @@ const ContactSection = () => {
     setSubmitStatus("idle")
 
     try {
-      // Insert message into Supabase
-      const { error } = await supabase.from("contact_messages").insert([
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
-          name: formData.name,
-          email: formData.email,
+          to_email: "merzougaziz800@gmail.com",
+          from_name: formData.name,
+          from_email: formData.email,
           message: formData.message,
-          created_at: new Date().toISOString(),
         },
-      ])
-
-      if (error) {
-        throw error
-      }
+      )
 
       setSubmitStatus("success")
       setFormData({ name: "", email: "", message: "" })
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle")
+      }, 5000)
     } catch (error) {
       console.error("Error submitting form:", error)
       setSubmitStatus("error")
