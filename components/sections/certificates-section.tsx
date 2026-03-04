@@ -32,22 +32,23 @@ export default function CertificatesSection() {
   return (
     <section id="certificates" className="pt-4 pb-16 bg-white dark:bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          🎓 {t("skills.certifications")}
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-foreground">
+          {t("skills.certifications")}
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {certificates.map((cert) => (
-            <div
+            <article
               key={cert.id}
-              className="rounded-2xl shadow-md p-6 border dark:border-border hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-card"
+              className="rounded-2xl shadow-md hover:shadow-xl hover:border-primary/50 p-6 border dark:border-primary/10 transition-all duration-300 bg-background/50 backdrop-blur-sm dark:bg-background/50"
             >
-              <div className="relative w-full h-48 mb-4">
+              <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={cert.image}
-                  alt={`${cert.title} certificate`}
+                  alt={`${cert.title} - Certificate from ${cert.issuer}`}
                   fill
                   className="object-contain rounded-md"
+                  loading="lazy"
                 />
               </div>
               <div className="space-y-2">
@@ -61,7 +62,7 @@ export default function CertificatesSection() {
                   Completed: {cert.date}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

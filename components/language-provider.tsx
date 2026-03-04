@@ -24,10 +24,10 @@ const translations = {
 
     // About Section
     "about.greeting": "Salut, je suis",
-    "about.title": "Étudiant Développeur & Passionné d'IA",
+    "about.title": "Master en Science des Données & NLP | Chercheur en IA",
     "about.description":
-      "Je suis Abdelaziz, étudiant à l'Université de Blida en Informatique (ISIL). Passionné par l'IA (RAG, GPT, embeddings), la cybersécurité, et les solutions web concrètes. J'ai réalisé des projets IA juridiques, de voyage, et des sites full-stack avec dashboard sécurisé.",
-    "about.education": "Université Saad Dahlab Blida 1",
+      "Je suis Abdelaziz, étudiant en Master Science des Données et NLP à l'Université de Blida. Passionné par la recherche en IA générative, systèmes RAG et recherche sémantique. Auteur d'un article de conférence IEEE sur les systèmes RAG pour les domaines juridiques. Proficient en Python, bases de données vectorielles et intégration LLM avec engagement fort envers l'avancée de la recherche en IA.",
+    "about.education": "Master en Science des Données & NLP | Université Saad Dahlab Blida 1",
     "about.specialties": "Spécialités",
 
     // Projects Section
@@ -102,7 +102,7 @@ const translations = {
     "contact.form.error": "Erreur lors de l'envoi. Réessayez.",
 
     // Footer
-    "footer.description": "Étudiant développeur passionné par l'IA et les technologies web modernes.",
+    "footer.description": "Master's student in Data Science & NLP passionate about advancing AI research and practical applications.",
     "footer.quickLinks": "Liens rapides",
     "footer.connect": "Me suivre",
     "footer.rights": "Tous droits réservés.",
@@ -119,10 +119,10 @@ const translations = {
 
     // About Section
     "about.greeting": "Hi, I'm",
-    "about.title": "Student Developer & AI Enthusiast",
+    "about.title": "Master's Student in Data Science & NLP | AI Researcher",
     "about.description":
-      "I'm Abdelaziz, a Computer Science student at University of Blida (ISIL track). Passionate about AI (RAG, GPT, embeddings), cybersecurity, and concrete web solutions. I've built legal AI projects, travel apps, and full-stack websites with secure dashboards.",
-    "about.education": "University Saad Dahlab Blida 1",
+      "I'm Abdelaziz, a Master's student in Data Science and NLP at University of Blida. Passionate about advancing research in generative AI, RAG systems, and semantic search. Published author of an IEEE conference paper on RAG systems for legal domains. Proficient in Python, vector databases, and LLM integration with strong commitment to advancing the field of AI research.",
+    "about.education": "Master's in Data Science & NLP | University Saad Dahlab Blida 1",
     "about.specialties": "Specialties",
 
     // Projects Section
@@ -197,7 +197,7 @@ const translations = {
     "contact.form.error": "Error sending message. Please try again.",
 
     // Footer
-    "footer.description": "Student developer passionate about AI and modern web technologies.",
+    "footer.description": "Master's student in Data Science & NLP passionate about advancing AI research and practical applications.",
     "footer.quickLinks": "Quick Links",
     "footer.connect": "Follow Me",
     "footer.rights": "All rights reserved.",
@@ -214,9 +214,9 @@ const translations = {
 
     // About Section
     "about.greeting": "مرحبا، أنا",
-    "about.title": "طالب مطور ومتحمس للذكاء الاصطناعي",
-    "about.description": "أنا عبد العزيز، طالب في جامعة البليدة تخصص علوم الكمبيوتر (مسار ISIL). شغوف بالذكاء الاصطناعي (GPT، RAG، embeddings) والأمن السيبراني وتطوير حلول الويب العملية. قمت بإنشاء مشاريع متنوعة تشمل: تطبيقات الذكاء الاصطناعي القانونية، تطبيقات السفر، ومواقع ويب كاملة التكامل مع لوحات تحكم آمنة.",
-    "about.education": "جامعة سعد دحلب البليدة 1",
+    "about.title": "طالب ماجستير في علوم البيانات و NLP | باحث في الذكاء الاصطناعي",
+    "about.description": "أنا عبد العزيز، طالب ماجستير في علوم البيانات ومعالجة اللغة الطبيعية بجامعة البليدة. شغوف بالبحث في الذكاء الاصطناعي التوليدي وأنظمة RAG والبحث الدلالي. مؤلف مقالة مؤتمر IEEE عن أنظمة RAG للمجالات القانونية. متقن لـ Python وقواعد البيانات الموجهة بالمتجهات وتكامل النماذج الكبيرة مع التزام قوي بتطوير مجال البحث في الذكاء الاصطناعي.",
+    "about.education": "ماجستير في علوم البيانات و NLP | جامعة سعد دحلب البليدة 1",
     "about.specialties": "التخصصات",
 
     // Projects Section
@@ -289,7 +289,7 @@ const translations = {
     "contact.form.error": "خطأ في إرسال الرسالة. حاول مرة أخرى.",
 
     // Footer
-    "footer.description": "طالب مطور شغوف بالذكاء الاصطناعي وتقنيات الويب الحديثة.",
+    "footer.description": "طالب ماجستير في علوم البيانات ومعالجة اللغة الطبيعية شغوف بتقدم البحث في الذكاء الاصطناعي والتطبيقات العملية.",
     "footer.quickLinks": "روابط سريعة",
     "footer.connect": "تابعني",
     "footer.rights": "جميع الحقوق محفوظة.",

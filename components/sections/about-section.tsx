@@ -30,7 +30,13 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-20">
+    <section id="about" className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Background gradient elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -45,10 +51,12 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-6xl font-bold text-foreground"
+                className="text-5xl md:text-7xl font-bold text-foreground text-balance"
               >
                 {t("about.greeting")}
-                <span className="text-primary block">Abdelaziz Merzoug</span>
+                <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                  Abdelaziz Merzoug
+                </span>
               </motion.h1>
 
               <motion.p
@@ -118,16 +126,20 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <Card className="w-full max-w-md">
+            <Card className="w-full max-w-md bg-background/50 backdrop-blur-sm border border-primary/10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardContent className="p-8">
                 <div className="text-center space-y-6">
                   {/* Avatar */}
-                  <motion.div whileHover={{ scale: 1.05 }} className="mx-auto w-32 h-32 rounded-full overflow-hidden shadow-md">
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }} 
+                    className="mx-auto w-32 h-32 rounded-full overflow-hidden shadow-xl ring-2 ring-primary/30 ring-offset-2 ring-offset-background"
+                  >
                     <Image
                       src="/profile.png"
-                      alt="Abdelaziz Merzoug"
+                      alt="Abdelaziz Merzoug - Full-Stack Developer"
                       width={128}
                       height={128}
+                      priority
                       className="object-cover w-full h-full"
                     />
                   </motion.div>
@@ -138,13 +150,13 @@ const AboutSection = () => {
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold">{t("about.specialties")}</h3>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      {["🧠 IA & ML", "🌐 Web Dev", "🔒 Cybersécurité"].map((specialty, index) => (
+                      {["🧠 RAG Systems", "📊 Data Science", "🔍 NLP"].map((specialty, index) => (
                         <motion.span
                           key={specialty}
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 1.2 + index * 0.1 }}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary border border-primary/30 rounded-full text-sm font-medium hover:from-primary/30 hover:to-secondary/30 transition-all"
                         >
                           {specialty}
                         </motion.span>

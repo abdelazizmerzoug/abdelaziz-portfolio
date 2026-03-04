@@ -2,22 +2,25 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle } from "lucide-react"
+import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useLanguage } from "@/components/language-provider"
-import { createClient } from "@supabase/supabase-js"
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
-)
+// Initialize EmailJS
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
+
+if (typeof window !== "undefined" && EMAILJS_PUBLIC_KEY) {
+  emailjs.init(EMAILJS_PUBLIC_KEY)
+}
 
 const ContactSection = () => {
   const { t } = useLanguage()
@@ -43,22 +46,25 @@ const ContactSection = () => {
     setSubmitStatus("idle")
 
     try {
-      // Insert message into Supabase
-      const { error } = await supabase.from("contact_messages").insert([
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
-          name: formData.name,
-          email: formData.email,
+          to_email: "merzougaziz800@gmail.com",
+          from_name: formData.name,
+          from_email: formData.email,
           message: formData.message,
-          created_at: new Date().toISOString(),
         },
-      ])
-
-      if (error) {
-        throw error
-      }
+      )
 
       setSubmitStatus("success")
       setFormData({ name: "", email: "", message: "" })
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle")
+      }, 5000)
     } catch (error) {
       console.error("Error submitting form:", error)
       setSubmitStatus("error")
@@ -149,7 +155,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="p-6 bg-primary/5 rounded-lg border border-primary/10"
+              className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-primary/20 hover:border-primary/40 transition-colors"
             >
               <h4 className="font-semibold text-foreground mb-2">{t("contact.quickResponse")}</h4>
               <p className="text-muted-foreground text-sm">{t("contact.responseTime")}</p>
@@ -163,12 +169,12 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold">{t("contact.sendMessage")}</CardTitle>
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+              <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5">
+                <CardTitle className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{t("contact.sendMessage")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">{t("contact.form.name")}</Label>

@@ -27,12 +27,12 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-muted/50 border-t border-border">
+    <footer className="bg-gradient-to-b from-muted/20 to-background border-t border-primary/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Abdelaziz Merzoug</h3>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Abdelaziz Merzoug</h3>
             <p className="text-muted-foreground">{t("footer.description")}</p>
           </div>
 

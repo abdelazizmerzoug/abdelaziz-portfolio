@@ -51,18 +51,24 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-primary/10" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} className="font-bold text-xl text-primary">
-            <button onClick={() => scrollToSection("about")}>Abdelaziz.dev</button>
+          <motion.div whileHover={{ scale: 1.05 }} className="font-bold text-xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <button 
+              onClick={() => scrollToSection("about")}
+              aria-label="Abdelaziz - Full-stack Developer"
+              className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
+            >
+              Abdelaziz.dev
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -72,7 +78,7 @@ const Navbar = () => {
                 {t(`nav.${item.key}`)}
               </button>
             ))}
-          </div>
+          </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
@@ -113,11 +119,12 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-t border-border"
+            aria-label="Mobile navigation"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
@@ -157,7 +164,7 @@ const Navbar = () => {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </div>
     </motion.nav>
