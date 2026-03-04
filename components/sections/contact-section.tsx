@@ -155,7 +155,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="p-6 bg-primary/5 rounded-lg border border-primary/10"
+              className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-primary/20 hover:border-primary/40 transition-colors"
             >
               <h4 className="font-semibold text-foreground mb-2">{t("contact.quickResponse")}</h4>
               <p className="text-muted-foreground text-sm">{t("contact.responseTime")}</p>
@@ -169,12 +169,12 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold">{t("contact.sendMessage")}</CardTitle>
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+              <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5">
+                <CardTitle className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{t("contact.sendMessage")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">{t("contact.form.name")}</Label>

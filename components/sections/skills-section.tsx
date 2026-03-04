@@ -97,7 +97,7 @@ const SkillsSection = () => {
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/50 transition-all duration-300 group bg-background/50 backdrop-blur-sm border border-primary/10">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <div

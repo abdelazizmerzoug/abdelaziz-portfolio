@@ -137,14 +137,15 @@ const ProjectsSection = () => {
               whileHover={{ y: -5 }}
               className="h-full"
             >
-              <Card className="h-full flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300">
+              <Card className="h-full flex flex-col overflow-hidden group hover:shadow-2xl hover:border-primary/50 transition-all duration-300 bg-background/50 backdrop-blur-sm border border-primary/10">
                 {/* Project Image Carousel */}
                 <div className="relative overflow-hidden bg-gray-100">
                   <div className="relative w-full h-56 sm:h-48">
                     <img
                       src={project.images[currentImageIndex[project.id] || 0]}
-                      alt={`${project.title} - Image ${(currentImageIndex[project.id] || 0) + 1}`}
+                      alt={`${project.title} screenshot ${(currentImageIndex[project.id] || 0) + 1} of ${project.images.length}`}
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 cursor-pointer"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
                     
@@ -153,12 +154,14 @@ const ProjectsSection = () => {
                       <>
                         <button
                           onClick={() => prevImage(project.id)}
+                          aria-label={`Previous image for ${project.title}`}
                           className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 shadow-lg"
                         >
                           <ChevronLeft className="h-3.5 w-3.5" />
                         </button>
                         <button
                           onClick={() => nextImage(project.id)}
+                          aria-label={`Next image for ${project.title}`}
                           className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 shadow-lg"
                         >
                           <ChevronRight className="h-3.5 w-3.5" />
@@ -173,6 +176,8 @@ const ProjectsSection = () => {
                           <button
                             key={imgIndex}
                             onClick={() => goToImage(project.id, imgIndex)}
+                            aria-label={`Go to image ${imgIndex + 1} of ${project.images.length}`}
+                            aria-current={(currentImageIndex[project.id] || 0) === imgIndex}
                             className={`w-1.5 h-1.5 rounded-full transition-all duration-300 shadow-sm ${
                               (currentImageIndex[project.id] || 0) === imgIndex
                                 ? 'bg-white scale-125 shadow-lg'
