@@ -150,7 +150,7 @@ const AboutSection = () => {
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold">{t("about.specialties")}</h3>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      {["🧠 IA & ML", "🌐 Web Dev", "🔒 Cybersécurité"].map((specialty, index) => (
+                      {["🧠 RAG Systems", "📊 Data Science", "🔍 NLP"].map((specialty, index) => (
                         <motion.span
                           key={specialty}
                           initial={{ opacity: 0, scale: 0.8 }}
